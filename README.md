@@ -24,19 +24,51 @@ in `server/mailgun_config.js` add:
       password: 'YOUR_MAILGUN_PASSWORD'
     });
   });
+  
+  // In your server code: define a method that the client can call
+  Meteor.methods({
+    sendEmail: function (mailFields) {
+        console.log("about to send email...");
+        check([mailFields.to, mailFields.from, mailFields.subject, mailFields.text, mailFields.html], [String]);
+
+        // Let other method calls from the same client start running,
+        // without waiting for the email sending to complete.
+        this.unblock();
+
+        Meteor.Mailgun.send({
+            to: mailFields.to,
+            from: mailFields.from,
+            subject: mailFields.subject,
+            text: mailFields.text,
+            html: mailFields.html
+        });
+        console.log("email sent!");
+    }
+  });
+
+  
 ```
 
 Anywhere you want to send an email:
 
 ```javascript
 
-  Meteor.Mailgun.send({
-    to: 'whoItsTo@theDomain.com',
-    from: 'no-reply@where-ever.com',
-    subject: 'I really like sending emails with Mailgun!',
-    text: 'Mailgun is totally awesome for sending emails!',
-    html: 'With meteor it''s easy to set up <strong>HTML</strong> <span style="color:red">emails</span> too.'
-  });
+  // In your client code: asynchronously send an email
+  console.log("about to send email...");
+  Meteor.call('sendEmail',
+    {
+      from: "Mike Cunneen <mike@mg.ju.to>",
+      to: "Mike Cunneen <mike@cunneen.biz>",
+      subject: "Email from meteor",
+      text: "Helloooo there!\nThis is from Meteor.\n\nBye.\n\nMike",
+      html: "<h1>Helloooo there!</h1><p>This is from <strong>Meteor</strong>.</p><p>Bye.</p><p>Mike</p>"
+    },
+    function(error, id) {
+      if (error)
+        Errors.throw(error.reason);
+    }
+  );
+
 ```
 
 ## Special Thanks
