@@ -16,7 +16,7 @@ Mailgun for Meteor
 
 ### Usage
 
-in `server/sendgrid_config.js` add:
+in `server/mailgun_config.js` add:
 ```javascript
   Meteor.startup(function(){
     Meteor.Mailgun.config({
