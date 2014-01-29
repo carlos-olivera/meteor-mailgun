@@ -1,28 +1,29 @@
 /* Usage:
 
   Meteor.startup(function(){
-    Meteor.Sendgrid.config({
-      username = 'SENDGRID_USERNAME',
-      password = 'SENDGRID_PASSWORD'
+    Meteor.Mailgun.config({
+      username = 'MAILGUN_USERNAME',
+      password = 'MAILGUN_PASSWORD'
     });
   });
 
  * In server directory:
 
-    Meteor.Sendgrid.send({
+    Meteor.Mailgun.send({
       to: 'something@something.com',
       from: 'you@yourdomain.com',
       subject: 'A subject',
-      text: 'This is the text'
+      text: 'This is the text',
+      html: 'With meteor it''s easy to set up <strong>HTML</strong> <span style="color:red">emails</span> too.'
     });
  *
  */
 
-Meteor.Sendgrid = {
+Meteor.Mailgun = {
   config: function(options){
     username = options['username'];
     password = options['password'];
-    host = '@smtp.sendgrid.net';
+    host = '@smtp.mailgun.org';
     port = '465';
     process.env.MAIL_URL = 'smtp://' + username + ':' + password + host + ':' + port + '/';
   },
