@@ -1,8 +1,8 @@
 Package.describe({
-  summary: 'Easily send emails using Sendgrid your email provider.'
+  summary: 'Easily send emails using Mailgun as your email provider.'
 });
 
 Package.on_use(function(api){
-  api.add_files('sendgrid.js', 'server');
-  api.export('Sendgrid', 'client');
+  api.add_files('mailgun.js', 'server');
+  api.export('Mailgun', 'client');
 });
