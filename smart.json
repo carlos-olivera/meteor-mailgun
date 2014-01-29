@@ -1,9 +1,9 @@
 {
-    "name": "sendgrid",
-    "description": "Wrapper for configuring and easily sending emails using Sendgrid.",
-    "homepage": "https://github.com/DavidBrear/meteor-sendgrid",
-    "author": "David Brear",
+    "name": "mailgun",
+    "description": "Wrapper for configuring and easily sending emails using Mailgun.",
+    "homepage": "https://github.com/cunneen/meteor-mailgun",
+    "author": "Mike Cunneen",
     "version": "0.9.0",
-    "git": "https://github.com/DavidBrear/meteor-sendgrid.git",
+    "git": "https://github.com/cunneen/meteor-mailgun.git",
     "packages": {}
 }
