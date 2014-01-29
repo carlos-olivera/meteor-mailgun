@@ -24,9 +24,9 @@ in `server/mailgun_config.js` add:
       password: 'YOUR_MAILGUN_PASSWORD'
     });
   });
-```
-// In your server code: define a method that the client can call
-Meteor.methods({
+
+  // In your server code: define a method that the client can call
+  Meteor.methods({
     sendEmail: function (mailFields) {
         console.log("about to send email...");
         check([mailFields.to, mailFields.from, mailFields.subject, mailFields.text, mailFields.html], [String]);
@@ -44,7 +44,8 @@ Meteor.methods({
         });
         console.log("email sent!");
     }
-});
+  });
+```
 
 Anywhere you want to send an email:
 
