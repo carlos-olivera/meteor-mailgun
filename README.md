@@ -3,6 +3,12 @@ Mailgun for Meteor
 
 #### A meteorite package for sending emails easily using Mailgun. Forked from David Brear's [Sendgrid](https://github.com/DavidBrear/meteor-sendgrid) package.
 
+To add this package to your application, run in your terminal:
+
+```lang-bash
+meteor add cunneen:mailgun
+```
+
 ### Setup Mailgun (if you haven't done so already)
 
 * Visit [Mailgun](http://mailgun.com) and create an account.
