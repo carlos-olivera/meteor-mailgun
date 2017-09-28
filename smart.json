@@ -1,9 +1,0 @@
-{
-    "name": "mailgun",
-    "description": "Wrapper for configuring and easily sending emails using Mailgun.",
-    "homepage": "https://github.com/cunneen/meteor-mailgun",
-    "author": "Mike Cunneen",
-    "version": "0.9.1",
-    "git": "https://github.com/cunneen/meteor-mailgun.git",
-    "packages": {}
-}
