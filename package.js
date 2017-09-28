@@ -9,7 +9,7 @@ Package.describe({
 });
 
 Package.on_use(function(api){
-  api.use('email','server','ecmascript');
+  api.use('email@1.2.1','ecmascript');
   api.add_files('mailgun.js', 'server');
   api.export('Mailgun', 'client');
 });
